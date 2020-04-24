@@ -1,0 +1,119 @@
+#main-nav .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+            /* top right bottom left */
+    padding: 2rem 0rem 2rem 0rem;
+}
+
+#main-nav .logo {
+    width: 180px;
+    margin-bottom: 0.9rem;
+}
+
+#main-nav .container ul li a {
+    font-size: 1rem;
+}
+
+/* Content */
+#content {
+    min-height: 70vh;
+    display: flex;
+    align-items: baseline;
+}
+
+#content .content-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+            /* top right bottom left */
+    padding: 0rem 2rem 0rem 2rem;
+}
+
+#home {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    padding-top: 0vh;
+}
+
+#home img {
+    width: 60%;
+    height: 60%;
+        /* top right bottom left */
+    padding: 1rem 0rem 2rem 0rem;
+}
+
+#home .divider {
+    display: none;
+}
+
+#home .home-text .home-text-container {
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+
+#cv {
+    /* justify-content: space-evenly;
+    grid-template-columns: 1fr 1fr 1fr; */
+    flex-direction: column;
+}
+
+#cv .cv-content {
+            /* top right bottom left */
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+#portfolio {
+    width: 90%;
+    /* margin: auto; */
+    /* justify-content: space-between; */
+        /* top right bottom left */
+    padding: 0rem 0rem 3rem 0rem;
+}
+
+#portfolio img {
+    width: 70%;
+    height: 70%;
+            /* top right bottom left */
+    margin: 0rem 0rem 3rem 0rem;
+}
+
+#portfolio .slide {
+    flex-direction: column;
+}
+
+#portfolio .portfolio-text .portfolio-text-container {
+    text-align: center;
+    /* width: 80%; */
+}
+
+#portfolio {
+    align-items: baseline;
+    width: 90%;
+    justify-content: space-between;
+        /* top right bottom left */
+    padding: 3rem 0rem 3rem 0rem;
+}
+
+.social {
+    display: flex;
+        /* top right bottom left */
+    padding: 3rem 0rem 2rem 0rem;
+}
+.social .social-link {
+        /* top right bottom left */
+    padding: 0rem 0.5rem 0rem 0.5rem;
+}
+
+#contact {
+    text-align: center;
+}
+
+#contact  .contact-form .l-heading {
+    font-size: 1rem;
+        /* top right bottom left */
+    padding: 0rem 0rem 1.3rem 0rem;
+}

@@ -1,0 +1,86 @@
+
+/* Content */
+#content {
+    min-height: 70vh;
+    display: flex;
+    align-items: baseline;
+}
+
+#content .content-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+            /* top right bottom left */
+    padding: 0rem 2rem 0rem 2rem;
+}
+
+.social {
+    display: flex;
+        /* top right bottom left */
+    padding: 3rem 0rem 2rem 0rem;
+}
+.social .social-link {
+        /* top right bottom left */
+    padding: 0rem 0.5rem 0rem 0.5rem;
+}
+
+/* Home */
+#home {
+    padding-top: 5vh;
+    width: 95%;
+    margin: auto;
+}
+
+#home .divider {
+    width: 3px;
+    height: 14rem;
+    background-color: var(--secondaryB-color);
+            /* top right bottom left */
+    margin: 0rem 3rem 0rem 3rem;
+}
+
+#home .home-text h1 {
+    font-size: 2.2rem;
+        /* top right bottom left */
+    padding: 0rem 0rem 1rem 0rem;
+}
+
+#home .home-text p {
+    font-size: 0.9rem;
+}
+
+/* CV */
+#cv {
+}
+
+#portfolio .portfolio-text .portfolio-text-container {
+    width: 90%;
+}
+
+#portfolio .portfolio-text h1 {
+    font-size: 1.25rem;
+        /* top right bottom left */
+    padding: 0rem 0rem 0rem 0rem;
+}
+
+#portfolio .portfolio-text span {
+        /* top right bottom left */
+    padding: 0rem 0rem 0rem 0rem;
+    font-size: 0.9rem;
+}
+
+#portfolio .portfolio-text p {
+    font-size: 0.9rem;
+            /* top right bottom left */
+    padding: 1.5rem 0rem 0rem 0rem;
+}
+
+#contact {
+    padding-top: 5vh;
+}
+
+#contact .contact-form {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}

@@ -1,0 +1,10 @@
+#main-nav .container ul li {
+        /* top right bottom left */
+    padding: 0rem 1.5rem 0rem 1.5rem;
+}
+
+#portfolio .arrow {
+    font-size: 5rem;
+            /* top right bottom left */
+    padding: 0rem 1rem 0rem 1rem;
+}
