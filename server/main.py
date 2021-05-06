@@ -4,10 +4,12 @@ from fastapi import FastAPI
 
 from pydantic import BaseModel
 
+from fastapi.staticfiles import StaticFiles
+
 
 app = FastAPI()
 
-
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 class Item(BaseModel):
 
