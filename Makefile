@@ -12,3 +12,6 @@ build-client:
 	rm -r server/static
 	mv client/static server
 
+deploy-heroku:
+	git subtree push --prefix web heroku master
+
