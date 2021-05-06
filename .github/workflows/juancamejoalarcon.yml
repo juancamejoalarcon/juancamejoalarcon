@@ -6,7 +6,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x]
+        node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -17,6 +17,14 @@ jobs:
         run: npm install --prefix ./client
       - name: Build Client
         run: npm run build --prefix ./client
+      - name: Move and rename client folder
+        run: |
+          mv client/build client/static
+          rm -r server/static
+          mv client/static server
+      - uses: EndBug/add-and-commit@v7.0.0
+        with:
+          default_author: github_actions
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
