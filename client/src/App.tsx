@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <div>Mi pagina personal</div>
+      <div>Mi pagina personal es una caca</div>
     </div>
   );
 }
