@@ -22,12 +22,12 @@ jobs:
           mv client/build client/static
           rm -r server/static
           mv client/static server
-      - uses: EndBug/add-and-commit@v7.0.0
-        with:
-          default_author: github_actions
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      # - uses: EndBug/add-and-commit@v7.0.0
+      #   with:
+      #     default_author: github_actions
+      - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "afternoon-earth-14955" #Must be unique in Heroku
+          heroku_app_name: "afternoon-earth-14955"
           heroku_email: "juancamejo93@gmail.com"
           appdir: "server" # <- This will point to the api folder in your projec
