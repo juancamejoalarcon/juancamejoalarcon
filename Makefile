@@ -1,7 +1,7 @@
 local-dev: run-client-local run-server-local
 
 run-server-local:
-	cd server && uvicorn main:app --reload
+	cd server && uvicorn app.main:app --reload
 
 run-client-local:
 	npm start --prefix ./client

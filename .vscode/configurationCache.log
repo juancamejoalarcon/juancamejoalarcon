@@ -1,0 +1,1 @@
+{"buildTargets":["build-client","deploy-heroku","local-dev","run-client-local","run-server-local"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
