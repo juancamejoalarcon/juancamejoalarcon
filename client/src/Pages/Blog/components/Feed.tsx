@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import apiService from 'services/api.service'
 
 
 export class Feed extends Component<unknown, { blogsList: any[] }> {
@@ -12,21 +12,8 @@ export class Feed extends Component<unknown, { blogsList: any[] }> {
     }
 
     getAllBlogs = (): void => {
-        this.setState({
-            blogsList: [
-                {
-                    title: 'cosa',
-                    description: 'Lorem ipsum'
-                },
-                {
-                    title: 'cosa2',
-                    description: 'Lorem ipsum2'
-                },
-                {
-                    title: 'cosa3',
-                    description: 'Lorem ipsum3'
-                },
-            ],
+        apiService.getAllblogs().then((blogsList) => {
+            this.setState({ blogsList })
         })
     }
 
@@ -34,7 +21,7 @@ export class Feed extends Component<unknown, { blogsList: any[] }> {
         return (
             <div>
                 <p>Blogs</p>
-
+                
                 <div>
                     {this.state.blogsList.map((blog: any, index: any) =>
                         <div key={index}>{blog.title}, {blog.description}</div>

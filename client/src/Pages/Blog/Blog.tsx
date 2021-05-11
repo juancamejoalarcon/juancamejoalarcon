@@ -1,29 +1,41 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  useRouteMatch
 } from "react-router-dom";
-import { Feed } from './components'
+import { Feed, BlogCreator } from './components'
 
-export default class Blog extends Component<unknown, { blogsList: any[] }> {
+export class Blog extends React.Component<unknown, { blogsList: any[] }> {
 
   constructor(props: { blogsList: any[] }) {
     super(props);
     this.state = {
-      blogsList: []
+      blogsList: [],
     };
   }
 
-  render(): JSX.Element {
+  Routered = () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    let match = useRouteMatch();
     return (
-      <Router>
-          <Switch>
-            <Route exact path="/blog">
-              <Feed />
-            </Route>
-          </Switch>
-      </Router>
+      <div>
+        <Switch>
+          <Route exact path={match.path}>
+            <Feed />
+          </Route>
+          <Route exact path={`${match.path}/create`}>
+            <BlogCreator />
+          </Route>
+        </Switch>
+      </div>
+        )
+    }
+
+  render() {
+    return (
+      <this.Routered />
     );
   }
 }

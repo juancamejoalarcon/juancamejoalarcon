@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/juancamejoalarcon/Proyectos/juancamejoalarcon/juancamejoalarcon'
+npm start --prefix ./client
+cd server && uvicorn app.main:app --reload
+make: Leaving directory `/Users/juancamejoalarcon/Proyectos/juancamejoalarcon/juancamejoalarcon'
+ 

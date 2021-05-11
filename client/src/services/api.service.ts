@@ -1,25 +1,45 @@
-// import axios from 'axios'
+import axios from 'axios'
 
 export class ApiService {
 
-  
-    get blogs(): Promise<string> {
-        return new Promise((resolve, reject) => {
-            resolve('caca')
-            // return axios.get('/blogs')
-            // .then(function (response) {
-            //   // handle success
-            //   console.log(response);
-            // })
-            // .catch(function (error) {
-            //   // handle error
-            //   console.log(error);
-            // })
-            // .then(function () {
-            //   // always executed
-            // });
-          });
-    }
 
   
+  
+    getAllblogs(): Promise<any> {
+        return new Promise((resolve, reject) => {
+          axios.get(`${process.env.REACT_APP_ENDPOINT}/blogs`)
+          .then((response) => {
+            // handle success
+            resolve(response.data);
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          })
+          .then(function () {
+            // always executed
+          });
+        });
+    }
+
+    saveBlog(params: { title: string, description: string, body: string }): Promise<any> {
+      const { title, description, body } = params
+      return new Promise((resolve, reject) => {
+        axios.post(`${process.env.REACT_APP_ENDPOINT}/blog`, {
+          title,
+          description,
+          body
+        })
+        .then(function (response) {
+          resolve(response)
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      });
   }
+
+  
+}
+
+export default new ApiService()

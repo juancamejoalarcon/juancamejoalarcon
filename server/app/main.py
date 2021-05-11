@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel
 
 
@@ -7,17 +7,30 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from os.path import dirname, join
+from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
 
-from app.api.endpoints import blogs
+load_dotenv()
+
+
+from app.api.endpoints import blog
 
 templates = Jinja2Templates(directory='static')
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+    allow_credentials=True,
+)
+
 app.include_router(
-    blogs.router, 
+    blog.router, 
     prefix="/api",
-    tags=["blogs"]
+    tags=["blog"]
 )
 
     

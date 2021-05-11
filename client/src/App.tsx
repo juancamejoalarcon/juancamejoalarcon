@@ -5,10 +5,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { Home } from './Pages'
+import { Home, CV, Blog } from './Pages'
 import './index.css';
 
-const Blog = React.lazy(() => import('./Pages/Blog/Blog'));
 class App extends React.Component {
   render() {
     return (
@@ -17,6 +16,9 @@ class App extends React.Component {
           <ul>
             <li>
               <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/cv">CV</Link>
             </li>
             <li>
               <Link to="/blog">Blog</Link>
@@ -28,12 +30,11 @@ class App extends React.Component {
             <Route exact path="/">
               <Home />
             </Route>
+            <Route exact path="/cv">
+              <CV />
+            </Route>
             <Route path="/blog">
-              <Suspense fallback={<div>Loading...</div>}>
-                <section>
-                  <Blog />
-                </section>
-              </Suspense>
+              <Blog />
             </Route>
           </Switch>
         </div>
