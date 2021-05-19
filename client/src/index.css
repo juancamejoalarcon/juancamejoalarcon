@@ -1,0 +1,22 @@
+@import url('https://juancamejoalarcon.s3.eu-west-3.amazonaws.com/juancamejoalarcon.css');
+
+
+:root {
+    --primary-font: 'Roboto', sans-serif;
+    --secondary-font: 'Cabin', sans-serif;
+    --jca-color-1: '#6e41ff';
+    --jca-color-2: '#f5f9fe';
+    --jca-color-3: '#d0d0d0';
+    --jca-color-4: '#333333';
+    --jca-color-5: '#666666';
+    --font-regular: 300;
+    --font-bold: 400;
+    --font-extrabold: 700;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

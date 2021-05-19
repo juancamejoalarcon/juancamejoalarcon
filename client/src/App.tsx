@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import { Home, CV, Blog } from './Pages'
+import Header from 'components/header/Header'
 import './index.css';
 
 class App extends React.Component {
@@ -13,7 +14,8 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <ul>
+          <Header/>
+          {/* <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -36,7 +38,7 @@ class App extends React.Component {
             <Route path="/blog">
               <Blog />
             </Route>
-          </Switch>
+          </Switch> */}
         </div>
       </Router>
     );
