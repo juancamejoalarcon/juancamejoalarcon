@@ -1,11 +1,5 @@
 import React from 'react';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link
-// } from "react-router-dom";
-// import { Home, CV, Blog } from './Pages'
+import { Link } from "react-router-dom";
 import './header.scss';
 
 class Header extends React.Component {
@@ -19,19 +13,19 @@ class Header extends React.Component {
             </a>
             <div className="header__navbar__nav" >
               <ul className="header__navbar__nav__menu">
-                <li className="menu_has_children"><a href="#intro" className="scroll-smoth">Home</a>
+                <li className="menu_has_children">
+                  <Link to="/">Home</Link>
+
+                </li>
+                <li><a href="#about" className="scroll-smoth">About</a></li>
+                <li>
+                  <Link to="/blog">Blog</Link>
+                  {/* NO BORRAR SUBMENU
+                  Añadir al padre "li" la clase menu_has_children 
                   <ul className="sub-menu">
                     <li><a href="index.html">Home One</a></li>
                     <li><a href="index2.html">Home Two</a></li>
-                  </ul>
-                </li>
-                <li><a href="#about" className="scroll-smoth">About</a></li>
-                <li><a href="#service" className="scroll-smoth">services</a></li>
-                <li><a href="#blog" className="scroll-smoth">blog</a></li>
-                <li className="menu_has_children"><a href="#intro">Pages</a>
-                  <ul className="sub-menu">
-                    <li><a href="about.html">About page</a></li>
-                  </ul>
+                  </ul> */}
                 </li>
                 <li><a href="#intro">Contact</a></li>
               </ul>

@@ -2,32 +2,19 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import { Home, CV, Blog } from './Pages'
 import Header from 'components/header/Header'
 import './index.css';
+import './App.css';
 
 class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
-          <Header/>
-          {/* <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/cv">CV</Link>
-            </li>
-            <li>
-              <Link to="/blog">Blog</Link>
-            </li>
-          </ul>
-
-          <hr />
+        <Header />
+        <main>
           <Switch>
             <Route exact path="/">
               <Home />
@@ -38,8 +25,8 @@ class App extends React.Component {
             <Route path="/blog">
               <Blog />
             </Route>
-          </Switch> */}
-        </div>
+          </Switch>
+        </main>
       </Router>
     );
   }
