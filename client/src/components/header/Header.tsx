@@ -8,14 +8,14 @@ class Header extends React.Component {
       <header className="header">
         <div className="header__container">
           <nav className="header__navbar">
-            <a className="header__navbar__logo" href="index.html">
+            <a className="header__navbar__logo" href="/">
               <img src="https://juancamejoalarcon.s3.eu-west-3.amazonaws.com/logo-v2.svg" alt="logo" />
             </a>
+            <input type="checkbox" className="header__navbar__burger-check"/>
             <div className="header__navbar__nav" >
               <ul className="header__navbar__nav__menu">
-                <li className="menu_has_children">
+                <li>
                   <Link to="/">Home</Link>
-
                 </li>
                 <li><a href="#about" className="scroll-smoth">About</a></li>
                 <li>
