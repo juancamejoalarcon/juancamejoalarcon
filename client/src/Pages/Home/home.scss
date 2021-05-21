@@ -120,3 +120,26 @@
     }
 }
 
+.portfolio-section {
+    background-color: #f9f7ff;
+    padding: 3rem 0rem;
+    padding-bottom: 6rem;
+    &__title {
+        padding: 2rem 0rem;
+        text-align: center;
+    }
+    &__cards {
+        display: flex;
+        .card {
+            border: none;
+        }
+    }
+}
+.experience-section {
+    padding-top: 2rem;
+    &__title {
+        padding: 2rem 0rem;
+        text-align: center;
+    }
+}
+

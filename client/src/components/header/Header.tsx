@@ -2,10 +2,33 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import './header.scss';
 
-class Header extends React.Component {
+type HeaderProps = {}
+type HeaderState =  {
+  showHeaderShadow: boolean;
+}
+class Header extends React.Component<HeaderProps, HeaderState> {
+  constructor(props: HeaderProps) {
+    super(props);
+    this.state = {
+      showHeaderShadow: false
+    }
+  }
+
+  addShadow() {
+    if (window.scrollY > 90) this.setState({showHeaderShadow: true})
+    else this.setState({showHeaderShadow: false})
+  }
+
+  componentDidMount() {
+    this.addShadow.bind(this)
+    window.addEventListener('scroll', this.addShadow.bind(this))
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.addShadow.bind(this))
+  }
   render() {
     return (
-      <header className="header">
+      <header className={`header ${this.state.showHeaderShadow ? 'header-shadow' : ''}`} >
         <div className="header__container">
           <nav className="header__navbar">
             <a className="header__navbar__logo" href="/">
