@@ -1,7 +1,7 @@
 from typing import Optional, List
 from pydantic import BaseModel
 
-
+from pprint import pprint
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -37,7 +37,11 @@ app.include_router(
 @app.get("/{rest_of_path:path}")
 async def serve_my_app(request: Request, rest_of_path: str):
     if rest_of_path[0:6] == "static":
-        return templates.TemplateResponse(rest_of_path, {"request": request})
+        response = templates.TemplateResponse(rest_of_path, {"request": request})
+        # FIX: CSS files being set to text/html insteado text/css
+        if "css" in rest_of_path:
+            response.raw_headers = [response.raw_headers[0], (b'content-type', b'text/css;')]
+        return response
     if rest_of_path[0:6] == "assets":
         return
     return templates.TemplateResponse("index.html", {"request": request})
