@@ -1,0 +1,37 @@
+.blog-creator {
+    margin-top: 120px;
+    &__container {
+        max-width: 1000px;
+        margin: auto;
+    }
+    h1 {
+        text-align: center;
+        padding-bottom: 2rem;
+    }
+    &__form {
+        padding: 1rem;
+    }
+    &__title,
+    &__description {
+        padding: 0.5rem 0rem;
+    }
+    &__quill {
+        padding: 1rem 3px;
+        .quill {
+            height: 500px;
+            &:focus-within {
+                .ql-container.ql-snow,
+                .ql-toolbar.ql-snow {
+                    border-color: var(--jca-color-1);
+                }
+            }
+        }
+        .ql-container.ql-snow,
+        .ql-toolbar.ql-snow {
+            border-color: var(--jca-color-4);
+        }
+    }
+    &__save {
+        margin-top: 4rem;
+    }
+}
