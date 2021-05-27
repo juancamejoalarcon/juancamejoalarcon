@@ -8,7 +8,7 @@ class Blog(BaseModel):
     date: Optional[date]
     title: Optional[str]
     description: str
+    category: Optional[str]
     body: str
-
     class Config:
         orm_mode = True

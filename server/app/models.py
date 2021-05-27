@@ -10,4 +10,5 @@ class Blog(Base):
     date = Column(Date)
     title = Column(String(255), index=True)
     description = Column(String(255), index=True)
+    category = Column(String(255), index=True)
     body = Column(String(255), index=True)

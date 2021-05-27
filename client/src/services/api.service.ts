@@ -1,10 +1,6 @@
 import axios from 'axios'
 
 export class ApiService {
-
-
-  
-  
     getAllblogs(): Promise<any> {
         return new Promise((resolve, reject) => {
           axios.get(`${process.env.REACT_APP_ENDPOINT}/blogs`)
@@ -22,14 +18,26 @@ export class ApiService {
         });
     }
 
-    saveBlog(params: { title: string, description: string, body: string }): Promise<any> {
-      const { title, description, body } = params
+    getBlogsByCategory(category: string): Promise<any> {
       return new Promise((resolve, reject) => {
-        axios.post(`${process.env.REACT_APP_ENDPOINT}/blog`, {
-          title,
-          description,
-          body
+        axios.get(`${process.env.REACT_APP_ENDPOINT}/?category=${category}`)
+        .then((response) => {
+          // handle success
+          resolve(response.data);
         })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+        .then(function () {
+          // always executed
+        });
+      });
+  }
+
+    saveBlog(params: { title: string, description: string, body: string, category: string }): Promise<any> {
+      return new Promise((resolve, reject) => {
+        axios.post(`${process.env.REACT_APP_ENDPOINT}/blog`, params)
         .then(function (response) {
           resolve(response)
         })

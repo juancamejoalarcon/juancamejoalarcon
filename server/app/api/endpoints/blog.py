@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, Depends
+from fastapi import APIRouter, Depends, HTTPException, Depends, Request
 from typing import Optional, List
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
@@ -22,9 +22,13 @@ def get_db():
 router = APIRouter()
 
 
-@router.get("/blogs", response_model=List[schemas.Blog])
-def get_all_blogs(db: Session = Depends(get_db)):
-    blogs = db.query(models.Blog).all()
+@router.get("/blogs{rest_of_path:path}", response_model=List[schemas.Blog])
+async def get_all_blogs(request: Request, db: Session = Depends(get_db)):
+    if request.query_params:
+        if request.query_params['category']:
+            blogs = db.query(models.Blog).filter(models.Blog.category == request.query_params['category']).all()
+    else:
+        blogs = db.query(models.Blog).all()
     return blogs
 
 @router.post("/blog")
@@ -34,11 +38,9 @@ def save_blog(blog: schemas.Blog):
         date=datetime.datetime.now().strftime("%x"),
         title=blog.title,
         description=blog.description,
+        category=blog.category,
         body=blog.body,
     )
     db.add(db_record)
     db.commit()
-    return {
-        "blog1": "caca",
-        "blog2": "caca3"
-        }
+    return blog

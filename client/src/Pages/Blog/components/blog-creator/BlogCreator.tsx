@@ -4,13 +4,21 @@ import './blog-creator.scss'
 
 import apiService from 'services/api.service'
 
-export class BlogCreator extends React.Component<unknown, { title: string, description: string, body: string }> {
+type BlogState =  { 
+  title: string, 
+  description: string,
+  category: string,
+  body: string 
+}
+
+export class BlogCreator extends React.Component<unknown, BlogState> {
 
   constructor(props: { blogsList: any[] }) {
     super(props);
     this.state = {
       title: '',
       description: '',
+      category: 'other',
       body: '',
     };
   }
@@ -25,10 +33,15 @@ export class BlogCreator extends React.Component<unknown, { title: string, descr
   setDescription = (description: string) => {
     this.setState({ description })
   }
+  setCategory = (category: string) => {
+    this.setState({ category })
+  }
 
   saveBlog = () => {
     apiService.saveBlog(this.state).then((data) => {
+      console.log('----');
       console.log(data);
+      console.log('----')
     })
   }
 
@@ -56,9 +69,21 @@ export class BlogCreator extends React.Component<unknown, { title: string, descr
             </div>
             <div className="blog-creator__description">
               <div className="jca-textarea">
-                  <textarea placeholder=" " />
+                  <textarea 
+                  onChange={(e: any) => this.setDescription(e.target.value)}
+                  placeholder=" " 
+                  />
                   <label>Descripción</label>
               </div>
+            </div>
+            <div className="blog-creator__category">
+              <div className="jca-select">
+                    <label>Categoría</label>
+                    <select onChange={(e: any) => this.setCategory(e.target.value)}>
+                        <option value="programming">Programación</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
             </div>
             <div className="blog-creator__quill">
               <ReactQuill theme="snow" value={this.state.body} onChange={this.getHTML} />
@@ -70,8 +95,6 @@ export class BlogCreator extends React.Component<unknown, { title: string, descr
             </div>
           </div>
         </div>
-        {/*
-        <input type="text" name="description" onChange={(e: any) => this.setDescription(e.target.value)}/>*/}
       </div>
     );
   }

@@ -11,8 +11,15 @@
     &__form {
         padding: 1rem;
     }
-    &__title,
     &__description {
+        height: 200px;
+    }
+    &__category {
+        height: 100px;
+    }
+    &__title,
+    &__description,
+    &__category {
         padding: 0.5rem 0rem;
     }
     &__quill {

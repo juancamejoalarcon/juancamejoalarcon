@@ -4,7 +4,7 @@ import {
   Route,
   useRouteMatch
 } from "react-router-dom";
-import { Feed } from './components'
+import { Feed } from 'Pages/Blog/components/feed/Feed'
 import { BlogCreator } from 'Pages/Blog/components/blog-creator/BlogCreator'
 
 export class Blog extends React.Component<unknown, { blogsList: any[] }> {

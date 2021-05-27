@@ -130,8 +130,23 @@
     }
     &__cards {
         display: flex;
-        .card {
+        justify-content: center;
+        @media (max-width: 770px) {
+            flex-direction: column;
+            align-items: center;
+        }
+        .-home-card {
             border: none;
+            max-width: 270px;
+            @media (max-width: 770px) {
+                max-width: 400px;
+            }
+            .card__thumb {
+                img {
+                    padding: 2rem;
+                    background-color: lightgray;
+                }
+            }
         }
     }
 }

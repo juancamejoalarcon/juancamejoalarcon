@@ -1,70 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
+import githubService from 'services/github.service'
+import experienceService from 'services/experience.service'
 import './home.scss';
 
 
 
-export class Home extends Component {
+export class Home extends React.Component<unknown, { lastWork: any[], experiences: any[] }> {
 
-  lastWork = [
-    {
-      image: "https://juancamejoalarcon.s3.eu-west-3.amazonaws.com/assets/blog/1.jpg",
-      titulo: 'Aenean mattis tortor ac sapien molestie.',
-      description: 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, At vero eos et accusam et justo duo dolores rebum.',
-      link: 'https://github.com/juancamejoalarcon'
-    },
-    {
-      image: "https://juancamejoalarcon.s3.eu-west-3.amazonaws.com/assets/blog/1.jpg",
-      titulo: 'Aenean mattis tortor ac sapien molestie.',
-      description: 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, At vero eos et accusam et justo duo dolores rebum.',
-      link: 'https://github.com/juancamejoalarcon'
-    },
-    {
-      image: "https://juancamejoalarcon.s3.eu-west-3.amazonaws.com/assets/blog/1.jpg",
-      titulo: 'Aenean mattis tortor ac sapien molestie.',
-      description: 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, At vero eos et accusam et justo duo dolores rebum.',
-      link: 'https://github.com/juancamejoalarcon'
-    },
-  ];
-
-  experiences = [
-    {
-      date: '2014-2015',
-      company: 'Senior WordPress Developer',
-      description: 'Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor invidunt.'
-    },
-    {
-      date: '2014-2015',
-      company: 'Senior WordPress Developer',
-      description: 'Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor invidunt.'
-    },
-    {
-      date: '2014-2015',
-      company: 'Senior WordPress Developer',
-      description: 'Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor invidunt.'
-    },
-    {
-      date: '2014-2015',
-      company: 'Senior WordPress Developer',
-      description: 'Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor invidunt.'
-    },
-  ]
+  constructor(props: { lastWork: any[] }) {
+    super(props);
+    this.state = {
+      lastWork: [],
+      experiences: []
+    };
+}
 
   Cards = (): JSX.Element => {
     return (
       <div className="portfolio-section__cards">
-        {this.lastWork.map((work, index) =>
-          <div className="card" key={index}>
+        {this.state.lastWork.map((work, index) =>
+          <div className="card -home-card" key={index}>
             <div className="card__thumb">
               <a target="_blank" href={work.link} rel="noreferrer">
-                <img src={work.image} alt="post-img" />
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png" alt="post-img" />
               </a>
             </div>
             <div className="card__content">
               <h4>
-                <a href="blog-single.html">{work.titulo}</a>
+                <a href="{work.link}">{work.repo}</a>
               </h4>
               <p>{work.description}</p>
-              <a className="card__content__read-more" target="_blank" href={work.link} rel="noreferrer">Read More</a>
+              <a className="card__content__read-more" target="_blank" href={work.link} rel="noreferrer">Ver</a>
             </div>
           </div>
         )}
@@ -75,7 +41,7 @@ export class Home extends Component {
   Experiencies = (): JSX.Element => {
     return (
       <div className="jca-timeline">
-        {this.experiences.map((experience, index) =>
+        {this.state.experiences.map((experience, index) =>
           <div className="jca-timeline__element" key={index}>
             <div className="jca-timeline__element__inner">
               <span className="year">{experience.date}</span>
@@ -88,6 +54,15 @@ export class Home extends Component {
     )
   }
 
+  componentDidMount() {
+    githubService.getPinnedRepos().then((lastWork) => {
+      this.setState({ lastWork })
+    })
+    experienceService.getExperiences().then((experiences) => {
+      this.setState({ experiences })
+    })
+  }
+
   render(): JSX.Element {
     return (
       <div>
@@ -95,10 +70,10 @@ export class Home extends Component {
           <div className="banner-section__container">
             <div className="container">
               <div className="banner-section__content">
-                <h3>Wellcome! I'M</h3>
+                <h3>Hola! Soy</h3>
                 <h1>Juan Camejo</h1>
-                <h4>Web Developer</h4>
-                <p>Lorem ipsum dolor sit amet,Stet clita kasd gubergren,  no sea takimata sanctus est Lorem ipsum dolor sit amet.  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
+                <h4>Desarrollador Front-End</h4>
+                {/* <p>un desarrollador Front-end Senior de Madrid.</p> */}
               </div>
             </div>
           </div>
@@ -118,12 +93,12 @@ export class Home extends Component {
         <section id="about" className="about-section">
           <div className="container">
             <div className="about-section__header">
-              <h2>About me</h2>
-              <p>Graphice Designer and Web Designer</p>
+              <h2>Sobre mí</h2>
+              <p>Desarrollador web</p>
             </div>
             <div className="about-section__wrapper">
               <div className="about-section__wrapper__container">
-                <p>Hi! My name is Wesley Kennedy. I am a full scale graphic designer. An experienced visual artist, committed to pixel perfect results. I am an expert in full brand development and corporate visual identity; from your logo, through all of your printed materials, up to your full online presence. A web designer, following the latest trends in brand/user communication.</p>
+                <p>Soy un desarrollador web nacido en Tenerife y viviendo en Madrid. Tengo 5 años de experiencia en los cuales me he especializado en el desarrollo Front-end, aunque también he trabajado como Back-end. Trato de combinar mi trabajo con mis proyectos personales. Creo que como desarrollador siempre hay que usar la tecnología adecuada al tipo de proyecto, por eso uso Javascript para todo :P</p>
               </div>
             </div>
           </div>
@@ -131,7 +106,7 @@ export class Home extends Component {
         <section className="portfolio-section">
           <div className="container">
             <div className="portfolio-section__title">
-              <h2>Last work</h2>
+              <h2>Últimos trabajos</h2>
             </div>
             <this.Cards />
           </div>
