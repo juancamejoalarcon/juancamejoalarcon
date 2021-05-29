@@ -25,6 +25,6 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "afternoon-earth-14955"
+          heroku_app_name: "juancamejoalarcon"
           heroku_email: "juancamejo93@gmail.com"
           appdir: "server" # <- This will point to the api folder in your projec
