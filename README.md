@@ -5,7 +5,7 @@
 ##### BIO
 
 - 🏢 I'm currently working at **[Aplazame](https://github.com/aplazame)**
-- ⚙️ I use daily: `.js`, `.html`, `.css`, `.svg`, ...
+- ⚙️ I use daily: `.js`, `.html`, `.css`, ...
 
 
 <p>
