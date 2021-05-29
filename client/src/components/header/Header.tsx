@@ -31,26 +31,30 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       <header className={`header ${this.state.showHeaderShadow ? 'header-shadow' : ''}`} >
         <div className="header__container">
           <nav className="header__navbar">
-            <a className="header__navbar__logo" href="/">
+            <Link className="header__navbar__logo" to="/">
               <img src="https://juancamejoalarcon.s3.eu-west-3.amazonaws.com/logo-v2.svg" alt="logo" />
-            </a>
+            </Link>
             <input type="checkbox" className="header__navbar__burger-check"/>
             <div className="header__navbar__nav" >
               <ul className="header__navbar__nav__menu">
                 <li>
                   <Link to="/">Home</Link>
                 </li>
-                <li><a href="#about" className="scroll-smoth">About</a></li>
                 <li>
-                  <Link to="/blog">Blog</Link>
+                  <Link to="/cv">CV</Link>
+                </li>
+                {/* <li> */}
+                  {/* <Link to="/blog">Blog</Link> */}
                   {/* NO BORRAR SUBMENU
                   Añadir al padre "li" la clase menu_has_children 
                   <ul className="sub-menu">
                     <li><a href="index.html">Home One</a></li>
                     <li><a href="index2.html">Home Two</a></li>
                   </ul> */}
+                {/* </li> */}
+                <li>
+                  <Link to="/contact">Contacto</Link>
                 </li>
-                <li><a href="#intro">Contact</a></li>
               </ul>
               <div className="header__navbar__nav__social">
                 <ul className="jca-social-icons small-icons">

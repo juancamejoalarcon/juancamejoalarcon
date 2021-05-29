@@ -5,7 +5,9 @@ import {
   Route
 } from "react-router-dom";
 import { Home, CV, Blog } from './Pages'
+import { Contact } from 'Pages/Contact/Contact'
 import Header from 'components/header/Header'
+import Footer from 'components/footer/Footer'
 import './App.scss';
 
 class App extends React.Component {
@@ -24,8 +26,12 @@ class App extends React.Component {
             <Route path="/blog">
               <Blog />
             </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
           </Switch>
         </main>
+        <Footer/>
       </Router>
     );
   }
