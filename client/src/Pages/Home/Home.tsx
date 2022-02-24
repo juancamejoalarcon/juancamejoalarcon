@@ -99,6 +99,7 @@ export class Home extends React.Component<unknown, { lastWork: any[], experience
             <div className="about-section__wrapper">
               <div className="about-section__wrapper__container">
                 <p>Soy un desarrollador web nacido en Tenerife y viviendo en Madrid. Tengo 5 años de experiencia en los cuales me he especializado en el desarrollo Front-end, aunque también he trabajado como Back-end. Trato de combinar mi trabajo con mis proyectos personales. Creo que como desarrollador siempre hay que usar la tecnología adecuada al tipo de proyecto, por eso uso Javascript para todo :P</p>
+                <br />
                 <p>Además de lo anterior, también soy el creador de dos proyectos:</p>
                 <ul>
                   <li>
